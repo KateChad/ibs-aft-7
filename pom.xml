@@ -27,7 +27,7 @@
         <cucumber-java.version>5.7.0</cucumber-java.version>
         <cucumber-junit.version>5.7.0</cucumber-junit.version>
         <aspectj.version>1.9.7</aspectj.version>
-        <allure-cucumber5-jvm.version>2.15.0</allure-cucumber5-jvm.version>
+        <allure-cucumber5-jvm.version>2.13.3</allure-cucumber5-jvm.version>
 
         <!-- Plugins version -->
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
@@ -109,7 +109,7 @@
                         -Xmx1024m
                         -Djunit.jupiter.extensions.autodetection.enabled=true
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                        -Dcucumber.options="--plugin "
+                        -Dcucumber.options="--plugin io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"
                     </argLine>
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/reports/allure-results

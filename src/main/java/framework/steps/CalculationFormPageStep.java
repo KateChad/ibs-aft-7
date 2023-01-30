@@ -2,10 +2,10 @@ package framework.steps;
 
 import framework.managers.PageManager;
 import framework.pages.CalculationFormPage;
-import framework.pages.СontributionsPage;
-import io.cucumber.core.gherkin.vintage.internal.gherkin.ast.DataTable;
+
+
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.bg.И;
-import io.cucumber.java.ru.Дано;
 
 import java.util.List;
 
@@ -32,21 +32,20 @@ public class CalculationFormPageStep {
         pageManager.getPage(CalculationFormPage.class).checkParametrFromDropDownList(nameOfDropDown, selectParameter);
     }
 
-    @Дано("^выбор банков:$")
-    public void selectBanks(io.cucumber.datatable.DataTable dataTable){
+    @И("^выбор банков:$")
+    public void selectBanks(DataTable dataTable){
         List<String> banks = dataTable.asList(String.class);
         pageManager.getPage(CalculationFormPage.class).selectBanks(banks);
-
     }
 
-    @Дано("^проверка выбора банка:$")
-    public void checkBanks(io.cucumber.datatable.DataTable dataTable){
+    @И("^проверка выбора банка:$")
+    public void checkBanks(DataTable dataTable){
         List<String> banks = dataTable.asList(String.class);
         pageManager.getPage(CalculationFormPage.class).checkBanks(banks);
     }
 
-    @Дано("^выбор дополнительных параметров:$")
-    public void selectParameters(io.cucumber.datatable.DataTable dataTable){
+    @И("^выбор дополнительных параметров:$")
+    public void selectParameters(DataTable dataTable){
         List<String> parameters = dataTable.asList(String.class);
         pageManager.getPage(CalculationFormPage.class).selectParameters(parameters);
     }

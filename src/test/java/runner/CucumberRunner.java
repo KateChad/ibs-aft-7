@@ -7,9 +7,9 @@ import io.cucumber.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = {"src/test/resources/scenario"},
-        glue = {"framework"},
-        tags = {"@regress"},
-        plugin = {"io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"}
+        glue = {"framework/steps","framework/hooks"},
+        tags = {"@regress"}
+//        plugin = {"io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"}
 )
 public class CucumberRunner {
 }
