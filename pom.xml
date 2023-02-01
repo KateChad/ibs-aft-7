@@ -26,7 +26,7 @@
         <junit-platform-launcher.version>1.8.2</junit-platform-launcher.version>
         <cucumber-java.version>5.7.0</cucumber-java.version>
         <cucumber-junit.version>5.7.0</cucumber-junit.version>
-        <aspectj.version>1.9.7</aspectj.version>
+        <aspectj.version>1.8.10</aspectj.version>
         <allure-cucumber5-jvm.version>2.13.3</allure-cucumber5-jvm.version>
 
         <!-- Plugins version -->
@@ -77,13 +77,6 @@
             <artifactId>allure-cucumber5-jvm</artifactId>
             <version>${allure-cucumber5-jvm.version}</version>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -107,9 +100,10 @@
                     <includes>**/CucumberRunner.java</includes>
                     <argLine>
                         -Xmx1024m
-                        -Djunit.jupiter.extensions.autodetection.enabled=true
+                        -Dfile.encoding=${encoding.type}
+<!--                        -Djunit.jupiter.extensions.autodetection.enabled=true-->
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                        -Dcucumber.options="--plugin io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"
+<!--                        -Dcucumber.options="&#45;&#45;plugin io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"-->
                     </argLine>
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/reports/allure-results
@@ -136,15 +130,15 @@
                     <resultsDirectory>${project.build.directory}/reports/allure-results</resultsDirectory>
                     <reportDirectory>${project.build.directory}/reports/allure-reports</reportDirectory>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>allure-plugin</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>allure-plugin</id>-->
+<!--                        <phase>install</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>report</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
             </plugin>
         </plugins>
     </build>
