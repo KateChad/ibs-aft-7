@@ -50,6 +50,12 @@ public class CalculationFormPageStep {
         pageManager.getPage(CalculationFormPage.class).selectParameters(parameters);
     }
 
+    @И("^проверка выбора дополнительных параметров:$")
+    public void checkSelectParameters(DataTable dataTable){
+        List<String> parameters = dataTable.asList(String.class);
+        pageManager.getPage(CalculationFormPage.class).checkSelectParameters(parameters);
+    }
+
     @И("^проверка количества вкладов указанных на кнопке \"([^\"]*)\"$")
     public void checkCountDepositsInButton(String countDeposits){
         pageManager.getPage(CalculationFormPage.class).checkCountDepositsInButton(countDeposits);

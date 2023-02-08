@@ -8,7 +8,7 @@ import io.cucumber.junit.Cucumber;
 @CucumberOptions(
         features = {"src/test/resources/scenario"},
         glue = {"framework/steps","framework/hooks"},
-        tags = {"@parameterized"},
+        tags = {"@regress"},
         plugin = {"io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"}
 )
 public class CucumberRunner {

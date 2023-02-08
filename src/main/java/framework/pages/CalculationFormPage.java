@@ -54,7 +54,7 @@ public class CalculationFormPage extends BasePage {
                 }
             }
         }
-        Assertions.fail("Выпадающий список " + nameOfDropDown + " не найден");
+        Assertions.fail("В выпадающем списке не найден " + nameOfDropDown );
         return this;
     }
 
@@ -68,7 +68,7 @@ public class CalculationFormPage extends BasePage {
                 return this;
             }
         }
-        Assertions.fail("Выпадающий список " + nameOfDropDown + " не найден");
+        Assertions.fail("В выпадающем списке не найден " + nameOfDropDown );
         return this;
     }
 
@@ -134,6 +134,27 @@ public class CalculationFormPage extends BasePage {
         return this;
     }
 
+    private CalculationFormPage checkSelectParameter(String nameOfParameter) {
+        for (WebElement parameter : checkboxWithParametrs) {
+            if (parameter.findElement(By.xpath("./span[2]"))
+                    .getText().contains(nameOfParameter)) {
+                boolean isParameterChecked = parameter.findElement(By.xpath("./input"))
+                        .getAttribute("checked")
+                        .contains("true");
+                Assertions.assertTrue(isParameterChecked,"Параметр " + nameOfParameter + " не выбран");
+                return this;
+            }
+        }
+        Assertions.fail("Чекбокс " + nameOfParameter + " не найден");
+        return this;
+    }
+
+    public CalculationFormPage checkSelectParameters(List<String> parameters){
+        for (String parameter : parameters) {
+            checkSelectParameter(parameter);
+        }
+        return this;
+    }
     public CalculationFormPage checkCountDepositsInButton(String countDeposits) {
         waitStabilityPage(5000, 200);
         Assertions.assertEquals(countDeposits, buttonShow.getText()
