@@ -1,8 +1,6 @@
 package framework.managers;
 
 import framework.pages.BasePage;
-import framework.pages.CalculationFormPage;
-import framework.pages.СontributionsPage;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;

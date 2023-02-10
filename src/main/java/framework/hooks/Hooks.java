@@ -4,14 +4,18 @@ import framework.managers.DriverManager;
 import framework.managers.InitManager;
 import framework.managers.PageManager;
 import framework.managers.TestPropManager;
+import framework.utils.MyListener;
 import framework.utils.PropsConst;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import org.junit.jupiter.api.extension.ExtendWith;
 
+@ExtendWith(MyListener.class)
 public class Hooks {
     private DriverManager driverManager = DriverManager.getInstance();
     private TestPropManager propManager = TestPropManager.getInstance();
     protected PageManager pageManager = PageManager.getInstance();
+
     @Before
     public void before(){
         InitManager.initFramework();

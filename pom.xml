@@ -52,7 +52,7 @@
         <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher -->
         <dependency>
             <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-launcher</artifactId>
+            <artifactId>junit-platform-runner</artifactId>
             <version>${junit-platform-launcher.version}</version>
             <scope>compile</scope>
         </dependency>
